@@ -24,6 +24,7 @@
 		1DCD56A526DA5A4D0075E843 /* TradePairsListingCellPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD56A426DA5A4D0075E843 /* TradePairsListingCellPresentation.swift */; };
 		1DCD56A726DA5AA60075E843 /* TradePairsListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD56A626DA5AA60075E843 /* TradePairsListingViewModel.swift */; };
 		1DCD56AA26DAA6290075E843 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD56A926DAA6290075E843 /* UITableViewCell+Extension.swift */; };
+		1DCD56AC26DAC0BA0075E843 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD56AB26DAC0BA0075E843 /* Collection+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		1DCD56A426DA5A4D0075E843 /* TradePairsListingCellPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePairsListingCellPresentation.swift; sourceTree = "<group>"; };
 		1DCD56A626DA5AA60075E843 /* TradePairsListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePairsListingViewModel.swift; sourceTree = "<group>"; };
 		1DCD56A926DAA6290075E843 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		1DCD56AB26DAC0BA0075E843 /* Collection+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				1DCD56A926DAA6290075E843 /* UITableViewCell+Extension.swift */,
+				1DCD56AB26DAC0BA0075E843 /* Collection+Extension.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DCD56AC26DAC0BA0075E843 /* Collection+Extension.swift in Sources */,
 				1D833B3726D7B041000023B4 /* NetworkManager.swift in Sources */,
 				1DCD56AA26DAA6290075E843 /* UITableViewCell+Extension.swift in Sources */,
 				1D833B0126D78D5C000023B4 /* TradePairsListingViewController.swift in Sources */,
