@@ -20,7 +20,9 @@
 		1DCD569926DA4A340075E843 /* TradePairsFetchingCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD569826DA4A340075E843 /* TradePairsFetchingCases.swift */; };
 		1DCD569E26DA59730075E843 /* TradePairsListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD569C26DA59730075E843 /* TradePairsListingTableViewCell.swift */; };
 		1DCD569F26DA59730075E843 /* TradePairsListingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DCD569D26DA59730075E843 /* TradePairsListingTableViewCell.xib */; };
+		1DCD56A226DA59C30075E843 /* TradePairsListingPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD56A126DA59C30075E843 /* TradePairsListingPresentation.swift */; };
 		1DCD56A526DA5A4D0075E843 /* TradePairsListingCellPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD56A426DA5A4D0075E843 /* TradePairsListingCellPresentation.swift */; };
+		1DCD56A726DA5AA60075E843 /* TradePairsListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD56A626DA5AA60075E843 /* TradePairsListingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +62,9 @@
 		1DCD569826DA4A340075E843 /* TradePairsFetchingCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePairsFetchingCases.swift; sourceTree = "<group>"; };
 		1DCD569C26DA59730075E843 /* TradePairsListingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePairsListingTableViewCell.swift; sourceTree = "<group>"; };
 		1DCD569D26DA59730075E843 /* TradePairsListingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TradePairsListingTableViewCell.xib; sourceTree = "<group>"; };
+		1DCD56A126DA59C30075E843 /* TradePairsListingPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePairsListingPresentation.swift; sourceTree = "<group>"; };
 		1DCD56A426DA5A4D0075E843 /* TradePairsListingCellPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePairsListingCellPresentation.swift; sourceTree = "<group>"; };
+		1DCD56A626DA5AA60075E843 /* TradePairsListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePairsListingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +175,9 @@
 			isa = PBXGroup;
 			children = (
 				1D833B0026D78D5C000023B4 /* TradePairsListingViewController.swift */,
+				1DCD56A126DA59C30075E843 /* TradePairsListingPresentation.swift */,
+				1DCD56A626DA5AA60075E843 /* TradePairsListingViewModel.swift */,
+				1DCD56A026DA597D0075E843 /* View */,
 			);
 			path = TradePairsListing;
 			sourceTree = "<group>";
@@ -327,8 +334,10 @@
 				1D833B3726D7B041000023B4 /* NetworkManager.swift in Sources */,
 				1D833B0126D78D5C000023B4 /* TradePairsListingViewController.swift in Sources */,
 				1D833AFD26D78D5C000023B4 /* AppDelegate.swift in Sources */,
+				1DCD56A226DA59C30075E843 /* TradePairsListingPresentation.swift in Sources */,
 				1DCD569626D7D6580075E843 /* TradePairs.swift in Sources */,
 				1D833AFF26D78D5C000023B4 /* SceneDelegate.swift in Sources */,
+				1DCD56A726DA5AA60075E843 /* TradePairsListingViewModel.swift in Sources */,
 				1DCD569E26DA59730075E843 /* TradePairsListingTableViewCell.swift in Sources */,
 				1DCD56A526DA5A4D0075E843 /* TradePairsListingCellPresentation.swift in Sources */,
 			);
