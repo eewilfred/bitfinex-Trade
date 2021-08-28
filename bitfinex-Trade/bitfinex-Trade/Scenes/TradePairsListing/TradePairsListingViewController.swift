@@ -10,6 +10,7 @@ import UIKit
 class TradePairsListingViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
 
     var model = TradePairsListingViewModel()
     var presentation = TradePairsListingPresentation()
@@ -20,10 +21,42 @@ class TradePairsListingViewController: UIViewController {
 
         super.viewDidLoad()
         configureTableView()
-        model.fetchTradePairs { success in
-            // TODO:
+        hideLoader(false)
+        // using unowned instead of weak as this has to comeback for any other user interaction / this is root view
+        model.fetchTradePairs { [unowned self] success in
+            self.handleTradePairsUpdate()
         }
     }
+
+    // MARK: Support
+
+    private func handleTradePairsUpdate() {
+
+        if !Thread.isMainThread {
+            DispatchQueue.main.async {
+                self.handleTradePairsUpdate()
+            }
+            return
+        }
+        presentation.update(state: self.model.state)
+        updateDataSource()
+        hideLoader(true)
+    }
+
+    fileprivate func hideLoader(_ isHidden: Bool) {
+
+        activityIndicatorView.isHidden = isHidden
+        if isHidden {
+            activityIndicatorView.stopAnimating()
+        } else {
+            activityIndicatorView.startAnimating()
+        }
+    }
+}
+
+// MARK: - TableView related
+
+extension TradePairsListingViewController {
 
     private func configureTableView() {
 
@@ -32,6 +65,7 @@ class TradePairsListingViewController: UIViewController {
             forCellReuseIdentifier: TradePairsListingTableViewCell.identifier
         )
         tableView.tableFooterView = UIView()
+        tableView.rowHeight = UITableView.automaticDimension
         // Add data source
         dataSource = UITableViewDiffableDataSource(
             tableView: tableView,
