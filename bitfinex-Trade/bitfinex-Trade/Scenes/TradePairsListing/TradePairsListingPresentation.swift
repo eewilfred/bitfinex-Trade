@@ -10,4 +10,8 @@ import Foundation
 struct TradePairsListingPresentation {
 
     var tradePairsCellPresentation = [TradePairsListingCellPresentation]()
+    enum Sections: CaseIterable {
+
+        case pairs
+    }
 }
