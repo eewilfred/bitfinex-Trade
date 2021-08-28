@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D833AFD26D78D5C000023B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D833AFC26D78D5C000023B4 /* AppDelegate.swift */; };
 		1D833AFF26D78D5C000023B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D833AFE26D78D5C000023B4 /* SceneDelegate.swift */; };
-		1D833B0126D78D5C000023B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D833B0026D78D5C000023B4 /* ViewController.swift */; };
+		1D833B0126D78D5C000023B4 /* TradePairsListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D833B0026D78D5C000023B4 /* TradePairsListingViewController.swift */; };
 		1D833B0426D78D5C000023B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D833B0226D78D5C000023B4 /* Main.storyboard */; };
 		1D833B0626D78D5D000023B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D833B0526D78D5D000023B4 /* Assets.xcassets */; };
 		1D833B0926D78D5D000023B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D833B0726D78D5D000023B4 /* LaunchScreen.storyboard */; };
@@ -41,7 +41,7 @@
 		1D833AF926D78D5C000023B4 /* bitfinex-Trade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bitfinex-Trade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D833AFC26D78D5C000023B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D833AFE26D78D5C000023B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1D833B0026D78D5C000023B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1D833B0026D78D5C000023B4 /* TradePairsListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePairsListingViewController.swift; sourceTree = "<group>"; };
 		1D833B0326D78D5C000023B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1D833B0526D78D5D000023B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D833B0826D78D5D000023B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -105,9 +105,9 @@
 		1D833AFB26D78D5C000023B4 /* bitfinex-Trade */ = {
 			isa = PBXGroup;
 			children = (
+				1DCD569A26DA4D2D0075E843 /* Scenes */,
 				1D833AFC26D78D5C000023B4 /* AppDelegate.swift */,
 				1D833AFE26D78D5C000023B4 /* SceneDelegate.swift */,
-				1D833B0026D78D5C000023B4 /* ViewController.swift */,
 				1D833B0226D78D5C000023B4 /* Main.storyboard */,
 				1D833B0526D78D5D000023B4 /* Assets.xcassets */,
 				1D833B0726D78D5D000023B4 /* LaunchScreen.storyboard */,
@@ -151,6 +151,22 @@
 				1DCD569526D7D6580075E843 /* TradePairs.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1DCD569A26DA4D2D0075E843 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				1DCD569B26DA4D3A0075E843 /* TradePairsListing */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		1DCD569B26DA4D3A0075E843 /* TradePairsListing */ = {
+			isa = PBXGroup;
+			children = (
+				1D833B0026D78D5C000023B4 /* TradePairsListingViewController.swift */,
+			);
+			path = TradePairsListing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,7 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D833B3726D7B041000023B4 /* NetworkManager.swift in Sources */,
-				1D833B0126D78D5C000023B4 /* ViewController.swift in Sources */,
+				1D833B0126D78D5C000023B4 /* TradePairsListingViewController.swift in Sources */,
 				1D833AFD26D78D5C000023B4 /* AppDelegate.swift in Sources */,
 				1DCD569626D7D6580075E843 /* TradePairs.swift in Sources */,
 				1D833AFF26D78D5C000023B4 /* SceneDelegate.swift in Sources */,
