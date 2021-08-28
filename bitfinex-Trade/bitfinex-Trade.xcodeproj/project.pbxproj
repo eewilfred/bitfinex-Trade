@@ -15,6 +15,7 @@
 		1D833B0926D78D5D000023B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D833B0726D78D5D000023B4 /* LaunchScreen.storyboard */; };
 		1D833B1426D78D5D000023B4 /* bitfinex_TradeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D833B1326D78D5D000023B4 /* bitfinex_TradeTests.swift */; };
 		1D833B1F26D78D5D000023B4 /* bitfinex_TradeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D833B1E26D78D5D000023B4 /* bitfinex_TradeUITests.swift */; };
+		1D833B3726D7B041000023B4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D833B3626D7B041000023B4 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		1D833B1A26D78D5D000023B4 /* bitfinex-TradeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bitfinex-TradeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D833B1E26D78D5D000023B4 /* bitfinex_TradeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bitfinex_TradeUITests.swift; sourceTree = "<group>"; };
 		1D833B2026D78D5D000023B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D833B3626D7B041000023B4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,14 @@
 				1D833B2026D78D5D000023B4 /* Info.plist */,
 			);
 			path = "bitfinex-TradeUITests";
+			sourceTree = "<group>";
+		};
+		1D833B3826D7B046000023B4 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				1D833B3626D7B041000023B4 /* NetworkManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D833B3726D7B041000023B4 /* NetworkManager.swift in Sources */,
 				1D833B0126D78D5C000023B4 /* ViewController.swift in Sources */,
 				1D833AFD26D78D5C000023B4 /* AppDelegate.swift in Sources */,
 				1D833AFF26D78D5C000023B4 /* SceneDelegate.swift in Sources */,
