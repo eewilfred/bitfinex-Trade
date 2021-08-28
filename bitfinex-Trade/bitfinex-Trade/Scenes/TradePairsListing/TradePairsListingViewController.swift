@@ -73,10 +73,10 @@ extension TradePairsListingViewController {
 
                 guard let cell = tableView.dequeueReusableCell(
                         withIdentifier: TradePairsListingTableViewCell.identifier
-                ) else {
+                ) as? TradePairsListingTableViewCell else {
                     return UITableViewCell()
                 }
-                // TODO: configure cell
+                cell.presentation = cellPresentation
                 return cell
             }
         )
