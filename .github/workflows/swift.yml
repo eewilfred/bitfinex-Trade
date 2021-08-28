@@ -9,8 +9,8 @@ jobs:
     strategy:
       matrix:
         run-config:
-          - { scheme: 'MPCF-Reflector-ios', destination: 'platform=iOS Simulator,OS=14.5.0,name=iPhone 12' }
-          - { scheme: 'MPCF-TestRunner-ios', destination: 'platform=iOS Simulator,OS=14.5.0,name=iPhone 12' }
+          - { scheme: 'bitfinex-Trade', destination: 'platform=iOS Simulator,OS=14.5.0,name=iPhone 12' }
+          - { scheme: 'bitfinex-TradeTests', destination: 'platform=iOS Simulator,OS=14.5.0,name=iPhone 12' }
 
     steps:
     - name: Checkout Project
