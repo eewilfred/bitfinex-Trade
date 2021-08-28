@@ -18,16 +18,8 @@ struct TradePairsListingPresentation {
 
     mutating func update(state: TradePairsListingState) {
 
-        tradePairsCellPresentations = state.pairs?.map { pairInfo -> TradePairsListingCellPresentation in
-
-            let dailyChange = pairInfo.values[4]
-            let lastPrice = pairInfo.values[6]
-
-            return TradePairsListingCellPresentation(
-                symbol: pairInfo.name,
-                lastPrice: lastPrice,
-                dailyChange: dailyChange
-            )
+        tradePairsCellPresentations = state.pairs?.map{
+            TradePairsListingCellPresentation(tradeInfo: $0)
         } ?? []
     }
 }
