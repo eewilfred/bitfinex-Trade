@@ -23,6 +23,7 @@
 		1DCD56A226DA59C30075E843 /* TradePairsListingPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD56A126DA59C30075E843 /* TradePairsListingPresentation.swift */; };
 		1DCD56A526DA5A4D0075E843 /* TradePairsListingCellPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD56A426DA5A4D0075E843 /* TradePairsListingCellPresentation.swift */; };
 		1DCD56A726DA5AA60075E843 /* TradePairsListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD56A626DA5AA60075E843 /* TradePairsListingViewModel.swift */; };
+		1DCD56AA26DAA6290075E843 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD56A926DAA6290075E843 /* UITableViewCell+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		1DCD56A126DA59C30075E843 /* TradePairsListingPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePairsListingPresentation.swift; sourceTree = "<group>"; };
 		1DCD56A426DA5A4D0075E843 /* TradePairsListingCellPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePairsListingCellPresentation.swift; sourceTree = "<group>"; };
 		1DCD56A626DA5AA60075E843 /* TradePairsListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePairsListingViewModel.swift; sourceTree = "<group>"; };
+		1DCD56A926DAA6290075E843 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		1D833AFB26D78D5C000023B4 /* bitfinex-Trade */ = {
 			isa = PBXGroup;
 			children = (
+				1DCD56A826DAA61B0075E843 /* Extenstions */,
 				1DCD569A26DA4D2D0075E843 /* Scenes */,
 				1D833AFC26D78D5C000023B4 /* AppDelegate.swift */,
 				1D833AFE26D78D5C000023B4 /* SceneDelegate.swift */,
@@ -198,6 +201,14 @@
 				1DCD56A426DA5A4D0075E843 /* TradePairsListingCellPresentation.swift */,
 			);
 			path = TradePairsListingTableViewCell;
+			sourceTree = "<group>";
+		};
+		1DCD56A826DAA61B0075E843 /* Extenstions */ = {
+			isa = PBXGroup;
+			children = (
+				1DCD56A926DAA6290075E843 /* UITableViewCell+Extension.swift */,
+			);
+			path = Extenstions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D833B3726D7B041000023B4 /* NetworkManager.swift in Sources */,
+				1DCD56AA26DAA6290075E843 /* UITableViewCell+Extension.swift in Sources */,
 				1D833B0126D78D5C000023B4 /* TradePairsListingViewController.swift in Sources */,
 				1D833AFD26D78D5C000023B4 /* AppDelegate.swift in Sources */,
 				1DCD56A226DA59C30075E843 /* TradePairsListingPresentation.swift in Sources */,
