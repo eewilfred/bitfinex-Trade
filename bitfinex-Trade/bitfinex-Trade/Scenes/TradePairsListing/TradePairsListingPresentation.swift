@@ -9,9 +9,25 @@ import Foundation
 
 struct TradePairsListingPresentation {
 
-    var tradePairsCellPresentation = [TradePairsListingCellPresentation]()
     enum Sections: CaseIterable {
 
         case pairs
+    }
+
+    var tradePairsCellPresentations = [TradePairsListingCellPresentation]()
+
+    mutating func update(state: TradePairsListingState) {
+
+        tradePairsCellPresentations = state.pairs?.map { pairInfo -> TradePairsListingCellPresentation in
+
+            let dailyChange = pairInfo.values[4]
+            let lastPrice = pairInfo.values[6]
+
+            return TradePairsListingCellPresentation(
+                symbol: pairInfo.name,
+                lastPrice: lastPrice,
+                dailyChange: dailyChange
+            )
+        } ?? []
     }
 }

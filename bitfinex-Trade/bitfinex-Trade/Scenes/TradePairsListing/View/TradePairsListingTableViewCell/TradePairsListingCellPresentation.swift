@@ -7,4 +7,9 @@
 
 import Foundation
 
-struct TradePairsListingCellPresentation: Hashable {}
+struct TradePairsListingCellPresentation: Hashable {
+
+    var symbol: String?
+    var lastPrice: Float?
+    var dailyChange: Float?
+}
