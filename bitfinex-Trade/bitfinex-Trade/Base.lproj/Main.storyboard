@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -10,16 +11,32 @@
         <!--Trade Pairs Listing View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TradePairsListingViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TradePairsListingViewController" customModule="bitfinex_Trade" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v33-Oh-EJI">
+                                <rect key="frame" x="0.0" y="44" width="414" height="834"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="v33-Oh-EJI" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Dzy-f6-lvp"/>
+                            <constraint firstAttribute="bottom" secondItem="v33-Oh-EJI" secondAttribute="bottom" constant="18" id="Euj-0G-0dH"/>
+                            <constraint firstItem="v33-Oh-EJI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="J1c-KH-pYz"/>
+                            <constraint firstItem="v33-Oh-EJI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vZD-CK-K2p"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="v33-Oh-EJI" id="9Ur-Eb-rUF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-14.492753623188406" y="93.75"/>
         </scene>
     </scenes>
     <resources>
