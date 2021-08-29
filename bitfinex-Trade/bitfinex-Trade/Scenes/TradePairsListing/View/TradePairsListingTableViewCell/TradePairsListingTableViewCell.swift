@@ -36,7 +36,7 @@ class TradePairsListingTableViewCell: UITableViewCell {
         }
 
         symbolLabel.text = presentation.symbol
-        lastPriceLabel.text = presentation.lastPrice
+        lastPriceLabel.attributedText = presentation.lastPrice
         dailyChange.attributedText = presentation.dailyChange
         dailyChange.backgroundColor = presentation.dailyChangeBgColor
     }

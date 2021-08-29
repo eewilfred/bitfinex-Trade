@@ -15,7 +15,7 @@ struct TradePairsListingCellPresentation: Hashable {
     }
 
     var symbol: String?
-    var lastPrice: String?
+    var lastPrice: NSAttributedString?
     var dailyChange: NSAttributedString?
     var dailyChangeBgColor = UIColor.green
 
@@ -24,18 +24,23 @@ struct TradePairsListingCellPresentation: Hashable {
         let dailyChange = tradeInfo.values[safe: Constants.dailyChangeIndex]
         let lastPrice = tradeInfo.values[safe: Constants.lastPriceIndex]
 
-        var foregroundColor = UIColor.black
+        var dailyChangeForegroundColor = UIColor.black
+        var lastPriceTextColor = UIColor(named: "DarkGreen") ?? .green
 
         if (dailyChange ?? 0.0) < 0 {
             dailyChangeBgColor = .red
-            foregroundColor = .white
+            dailyChangeForegroundColor = .white
+            lastPriceTextColor = .red
         }
 
         symbol = String(tradeInfo.name.dropFirst()) // remove "t"
         self.dailyChange = NSAttributedString(
             string: String(format: "%.3f", dailyChange ?? 0.0),
-            attributes: [.foregroundColor : foregroundColor]
+            attributes: [.foregroundColor : dailyChangeForegroundColor]
         )
-        self.lastPrice = String(format: "%.3f", lastPrice ?? 0.0)
+        self.lastPrice = NSAttributedString(
+            string: String(format: "%.3f", lastPrice ?? 0.0),
+            attributes: [.foregroundColor : lastPriceTextColor]
+        )
     }
 }
