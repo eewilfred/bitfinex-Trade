@@ -64,6 +64,7 @@ extension TradePairsListingViewController {
             TradePairsListingTableViewCell.nib,
             forCellReuseIdentifier: TradePairsListingTableViewCell.identifier
         )
+        tableView.delegate = self
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
         // Add data source
@@ -100,3 +101,13 @@ extension TradePairsListingViewController {
     }
 }
 
+extension TradePairsListingViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "RealTimeInfoViewController")
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
+    }
+}

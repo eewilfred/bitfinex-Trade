@@ -85,8 +85,74 @@
             </objects>
             <point key="canvasLocation" x="-14.492753623188406" y="93.75"/>
         </scene>
+        <!--Real Time Info View Controller-->
+        <scene sceneID="Qc6-SI-GNY">
+            <objects>
+                <viewController storyboardIdentifier="RealTimeInfoViewController" id="zHn-H8-7Z4" customClass="RealTimeInfoViewController" customModule="bitfinex_Trade" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1yN-yv-iGc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3U-BA-Fpw">
+                                <rect key="frame" x="20" y="54" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Up9-Qy-NpW"/>
+                                    <constraint firstAttribute="width" constant="44" id="uMc-Dd-MPG"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="arrow.backward" catalog="system"/>
+                                <connections>
+                                    <action selector="didTapOnBackButton" destination="zHn-H8-7Z4" eventType="touchUpInside" id="eGq-D0-0mh"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vID-Vp-w3g">
+                                <rect key="frame" x="136.5" y="58" width="141" height="36"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5D-RM-LjG">
+                                        <rect key="frame" x="46" y="0.0" width="95" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="BTC / AED"/>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right.arrow.left" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1SN-e2-39e">
+                                        <rect key="frame" x="0.0" y="1" width="38" height="34"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="38" id="ERe-qA-3Wg"/>
+                                            <constraint firstAttribute="height" constant="32" id="Xhw-Sg-7an"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="1SN-e2-39e" firstAttribute="centerY" secondItem="vID-Vp-w3g" secondAttribute="centerY" id="Iva-3d-PID"/>
+                                    <constraint firstAttribute="bottom" secondItem="k5D-RM-LjG" secondAttribute="bottom" id="WsV-WA-LgL"/>
+                                    <constraint firstItem="k5D-RM-LjG" firstAttribute="leading" secondItem="1SN-e2-39e" secondAttribute="trailing" constant="8" symbolic="YES" id="ZB5-LD-VND"/>
+                                    <constraint firstItem="1SN-e2-39e" firstAttribute="leading" secondItem="vID-Vp-w3g" secondAttribute="leading" id="bU3-ju-djN"/>
+                                    <constraint firstItem="k5D-RM-LjG" firstAttribute="centerY" secondItem="vID-Vp-w3g" secondAttribute="centerY" id="osl-HC-aCo"/>
+                                    <constraint firstItem="k5D-RM-LjG" firstAttribute="top" secondItem="vID-Vp-w3g" secondAttribute="top" id="ybU-7r-6MK"/>
+                                    <constraint firstAttribute="trailing" secondItem="k5D-RM-LjG" secondAttribute="trailing" id="zvz-pj-tQF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pq8-7p-19u"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="a3U-BA-Fpw" firstAttribute="leading" secondItem="pq8-7p-19u" secondAttribute="leading" constant="20" id="8eV-no-s7c"/>
+                            <constraint firstItem="vID-Vp-w3g" firstAttribute="centerY" secondItem="a3U-BA-Fpw" secondAttribute="centerY" id="TCH-cR-IwP"/>
+                            <constraint firstItem="a3U-BA-Fpw" firstAttribute="top" secondItem="pq8-7p-19u" secondAttribute="top" constant="10" id="WtK-Fy-znX"/>
+                            <constraint firstItem="vID-Vp-w3g" firstAttribute="centerX" secondItem="1yN-yv-iGc" secondAttribute="centerX" id="dUF-uE-mlP"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lSi-RB-pEu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="879.71014492753625" y="93.75"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="98"/>
+        <image name="arrow.right.arrow.left" catalog="system" width="119" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
