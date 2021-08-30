@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D313F8326DBBC3300E6FFB1 /* RealTimeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313F8226DBBC3300E6FFB1 /* RealTimeInfoViewController.swift */; };
+		1D313F8A26DCC59F00E6FFB1 /* RealTimeInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313F8926DCC59F00E6FFB1 /* RealTimeInfoViewModel.swift */; };
 		1D313F8C26DCCD6900E6FFB1 /* SocketConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313F8B26DCCD6900E6FFB1 /* SocketConnectionManager.swift */; };
 		1D313F8E26DCE8E600E6FFB1 /* TradePairUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313F8D26DCE8E600E6FFB1 /* TradePairUpdates.swift */; };
 		1D833AFD26D78D5C000023B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D833AFC26D78D5C000023B4 /* AppDelegate.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		1D313F8226DBBC3300E6FFB1 /* RealTimeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeInfoViewController.swift; sourceTree = "<group>"; };
+		1D313F8926DCC59F00E6FFB1 /* RealTimeInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeInfoViewModel.swift; sourceTree = "<group>"; };
 		1D313F8B26DCCD6900E6FFB1 /* SocketConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketConnectionManager.swift; sourceTree = "<group>"; };
 		1D313F8D26DCE8E600E6FFB1 /* TradePairUpdates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePairUpdates.swift; sourceTree = "<group>"; };
 		1D833AF926D78D5C000023B4 /* bitfinex-Trade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bitfinex-Trade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				1D313F8226DBBC3300E6FFB1 /* RealTimeInfoViewController.swift */,
+				1D313F8926DCC59F00E6FFB1 /* RealTimeInfoViewModel.swift */,
 			);
 			path = RealTimeInfo;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				1DCD56AC26DAC0BA0075E843 /* Collection+Extension.swift in Sources */,
 				1D833B3726D7B041000023B4 /* NetworkManager.swift in Sources */,
 				1DCD56AA26DAA6290075E843 /* UITableViewCell+Extension.swift in Sources */,
+				1D313F8A26DCC59F00E6FFB1 /* RealTimeInfoViewModel.swift in Sources */,
 				1D833B0126D78D5C000023B4 /* TradePairsListingViewController.swift in Sources */,
 				1D833AFD26D78D5C000023B4 /* AppDelegate.swift in Sources */,
 				1D313F8E26DCE8E600E6FFB1 /* TradePairUpdates.swift in Sources */,
