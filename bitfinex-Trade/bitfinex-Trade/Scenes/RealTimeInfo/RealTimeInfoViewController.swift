@@ -13,11 +13,35 @@ class RealTimeInfoViewController: UIViewController {
     var model: RealTimeInfoViewModel!
     var presentation = RealTimeInfoViewPresentation()
 
+    enum DataItem: Hashable, Equatable {
+        case ticker(TickerInfoViewCellPresentation)
+        case trade(TradeInfoCellPresentation)
+
+        static func == (lhs: Self, rhs: Self) -> Bool {
+            var lhsTickerPresentation: TickerInfoViewCellPresentation?
+            var lhsTradePresentation: TradeInfoCellPresentation?
+            switch lhs {
+            case .ticker(let presentation):
+                lhsTickerPresentation = presentation
+            case .trade(let presentation):
+                lhsTradePresentation = presentation
+            }
+
+            switch rhs {
+            case .ticker(let presentation):
+                return presentation == lhsTickerPresentation
+            case .trade(let presentation):
+                return presentation == lhsTradePresentation
+            }
+        }
+    }
+
     @IBOutlet weak var tradePairChangeButton: UIButton!
     @IBOutlet weak var infoCollectionView: UICollectionView!
 
-    var dataSource: UICollectionViewDiffableDataSource<RealTimeInfoViewPresentation.Sections, TickerInfoViewCellPresentation>?
-    
+    var dataSource: UICollectionViewDiffableDataSource<RealTimeInfoViewPresentation.Sections, DataItem>?
+    typealias Snapshot = NSDiffableDataSourceSnapshot<RealTimeInfoViewPresentation.Sections, DataItem>
+
     override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -32,40 +56,67 @@ class RealTimeInfoViewController: UIViewController {
             TickerInfoCollectionViewCell.nib,
             forCellWithReuseIdentifier: TickerInfoCollectionViewCell.identifier
         )
+        infoCollectionView.register(
+            TradeInfoCollectionViewCell.nib,
+            forCellWithReuseIdentifier: TradeInfoCollectionViewCell.identifier
+        )
+
+        infoCollectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
+
         infoCollectionView.delegate = self
 
-        dataSource = UICollectionViewDiffableDataSource(collectionView: infoCollectionView, cellProvider: { (collectionView, path, cellPresentation) in
+        dataSource = UICollectionViewDiffableDataSource(collectionView: infoCollectionView, cellProvider: { (collectionView, indexPath, cellPresentation) in
 
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TickerInfoCollectionViewCell.identifier, for: path) as? TickerInfoCollectionViewCell else {
+            switch cellPresentation {
 
-                return UICollectionViewCell()
+            case .ticker(let presentation):
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TickerInfoCollectionViewCell.identifier, for: indexPath) as? TickerInfoCollectionViewCell {
+                    cell.presentation = presentation
+                    return cell
+                } else {
+                    return UICollectionViewCell()
+                }
+
+            case .trade(let presentation):
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TradeInfoCollectionViewCell.identifier, for: indexPath) as? TradeInfoCollectionViewCell {
+                    cell.presentation = presentation
+                    return cell
+                } else {
+                    return UICollectionViewCell()
+                }
+
             }
 
-            cell.presentation = cellPresentation
-            return cell
+
         })
+
 
         // link table and source
         guard let data = dataSource else {
             return
         }
 
-        var snapshot = NSDiffableDataSourceSnapshot<RealTimeInfoViewPresentation.Sections, TickerInfoViewCellPresentation>()
-        snapshot.appendSections(RealTimeInfoViewPresentation.Sections.allCases)
-        snapshot.appendItems([])
-        data.apply(snapshot, animatingDifferences: false, completion: nil)
-    }
+        data.supplementaryViewProvider = { (
+            collectionView: UICollectionView,
+            kind: String,
+            indexPath: IndexPath) -> UICollectionReusableView? in
 
-    private func UpdateCollectionView() {
-
-        guard var snapshot = dataSource?.snapshot() else {
-            return
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header", for: indexPath)
+            header.largeContentTitle = kind
+            return header
         }
 
-        snapshot.appendItems(presentation.tickerInfoCellPresentation ?? [])
-        dataSource?.apply(snapshot)
-    }
+        var snapshot = Snapshot()
+        snapshot.appendSections([.tickerInfo, .tradeInfo])
 
+        let tikerMap = presentation.tickerInfoCellPresentation?.map({ DataItem.ticker($0)}) ?? []
+        snapshot.appendItems(tikerMap, toSection: .tickerInfo)
+
+        let tradeMap = presentation.tradeInfoCellPresentation?.map({ DataItem.trade($0)}) ?? []
+        snapshot.appendItems(tradeMap, toSection: .tradeInfo)
+        data.apply(snapshot, animatingDifferences: true)
+
+    }
 
     // MARK: Actions
 
@@ -118,23 +169,57 @@ extension RealTimeInfoViewController: UIPickerViewDelegate, UIPickerViewDataSour
 
 extension RealTimeInfoViewController: RealTimeInfoViewModelDelegate {
 
-    func didUpdateTradePairInfo() {
+    func didUpdateTickerInfo() {
 
         if !Thread.isMainThread {
             DispatchQueue.main.async {
-                self.didUpdateTradePairInfo()
+                self.didUpdateTickerInfo()
             }
             return
         }
 
-        guard var snapshot = dataSource?.snapshot() else {
+        removeItemsForSection(section: .tickerInfo)
+        presentation.updaTickerInfoCellPresentation(state: model.state)
+        guard var snapshot = dataSource?.snapshot(),
+              let tikerMap = presentation.tickerInfoCellPresentation?.map({ DataItem.ticker($0)}) else {
+            return
+        }
+        snapshot.appendItems(tikerMap, toSection: .tickerInfo)
+        dataSource?.apply(snapshot)
+    }
+
+    func didUpdateTradeInfo() {
+
+        if !Thread.isMainThread {
+            DispatchQueue.main.async {
+                self.didUpdateTradeInfo()
+            }
             return
         }
 
-        snapshot.deleteItems(presentation.tickerInfoCellPresentation ?? [])
+        removeItemsForSection(section: .tradeInfo)
+        presentation.updaTradeInfoCellPresentation(state: model.state)
+        guard var snapshot = dataSource?.snapshot(),
+              let tradeMap = presentation.tradeInfoCellPresentation?.map({ DataItem.trade($0)}) else {
+            return
+        }
+        snapshot.appendItems(tradeMap, toSection: .tradeInfo)
         dataSource?.apply(snapshot)
-        presentation.updaTetradeInfoCellPresentation(state: model.state)
-        UpdateCollectionView()
+    }
+
+    private func removeItemsForSection(section: RealTimeInfoViewPresentation.Sections) {
+
+        guard var snapshot = dataSource?.snapshot() else {
+            return
+        }
+        if section == .tickerInfo {
+            let data = presentation.tickerInfoCellPresentation?.map({ DataItem.ticker($0)}) ?? []
+            snapshot.deleteItems(data)
+        } else {
+            let data = presentation.tradeInfoCellPresentation?.map({ DataItem.trade($0)}) ?? []
+            snapshot.deleteItems(data)
+        }
+        dataSource?.apply(snapshot)
     }
 }
 
@@ -163,10 +248,15 @@ extension RealTimeInfoViewController: UICollectionViewDelegateFlowLayout {
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
 
-        let totalWidth = collectionView.bounds.width - 50.0
-        let totalHeight = collectionView.bounds.height
+        if .tickerInfo == RealTimeInfoViewPresentation.Sections(rawValue: indexPath.section) {
+            let totalWidth = collectionView.bounds.width - 50.0
+            let totalHeight = collectionView.bounds.height
 
-        let cellHeight = (totalHeight/2.0) / (CGFloat(model.state.tickerUpdate?.updateInfo.count ?? 0)/2.0)
-        return CGSize(width: totalWidth/2.0, height: cellHeight)
+            let cellHeight = (totalHeight/2.0) / (CGFloat(model.state.tickerUpdate?.updateInfo.count ?? 0)/2.0)
+            return CGSize(width: totalWidth/2.0, height: cellHeight)
+        } else {
+            return CGSize(width: collectionView.bounds.width - 20.0, height: 40)
+        }
+
     }
 }

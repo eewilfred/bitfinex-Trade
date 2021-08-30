@@ -9,7 +9,8 @@ import Foundation
 
 protocol RealTimeInfoViewModelDelegate: AnyObject {
 
-    func didUpdateTradePairInfo()
+    func didUpdateTickerInfo()
+    func didUpdateTradeInfo()
 }
 
 // MARK: - RealTimeInfoViewState
@@ -104,12 +105,13 @@ extension RealTimeInfoViewModel: SocketConnectionDelegate {
                 print("trade update received")
                 #endif
                 state.tradeUpdate = tradeUpdate
+                delegate?.didUpdateTradeInfo()
             } else if let tradePairUpdate = try? JSONDecoder().decode(
                 TradePairTickerUpdates.self,
                 from: jsonData
             ) {
                 state.tickerUpdate = tradePairUpdate
-                delegate?.didUpdateTradePairInfo()
+                delegate?.didUpdateTickerInfo()
 
                 #if DEBUG
                 print("ticket recived")
