@@ -12,9 +12,9 @@ struct TradePairUpdates: Decodable  {
     private var values = [Float]()
     var channelId: Int = 0
 
-    var updateInfo = [information]()
+    var updateInfo = [Information]()
 
-    enum information {
+    enum Information {
 
         case bid(Float)
         case bidSize(Float)
@@ -74,7 +74,7 @@ struct TradePairUpdates: Decodable  {
             }
         }
         for i in values.enumerated() {
-            updateInfo.append(information(arg: i))
+            updateInfo.append(Information(arg: i))
         }
     }
 }

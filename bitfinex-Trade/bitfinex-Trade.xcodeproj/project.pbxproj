@@ -11,6 +11,9 @@
 		1D313F8A26DCC59F00E6FFB1 /* RealTimeInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313F8926DCC59F00E6FFB1 /* RealTimeInfoViewModel.swift */; };
 		1D313F8C26DCCD6900E6FFB1 /* SocketConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313F8B26DCCD6900E6FFB1 /* SocketConnectionManager.swift */; };
 		1D313F8E26DCE8E600E6FFB1 /* TradePairUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313F8D26DCE8E600E6FFB1 /* TradePairUpdates.swift */; };
+		1D313F9126DD076300E6FFB1 /* RealTimeInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313F8F26DD076300E6FFB1 /* RealTimeInfoCollectionViewCell.swift */; };
+		1D313F9226DD076300E6FFB1 /* RealTimeInfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D313F9026DD076300E6FFB1 /* RealTimeInfoCollectionViewCell.xib */; };
+		1D313F9826DD26DB00E6FFB1 /* RealTimeInfoViewCellPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313F9726DD26DB00E6FFB1 /* RealTimeInfoViewCellPresentation.swift */; };
 		1D833AFD26D78D5C000023B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D833AFC26D78D5C000023B4 /* AppDelegate.swift */; };
 		1D833AFF26D78D5C000023B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D833AFE26D78D5C000023B4 /* SceneDelegate.swift */; };
 		1D833B0126D78D5C000023B4 /* TradePairsListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D833B0026D78D5C000023B4 /* TradePairsListingViewController.swift */; };
@@ -53,6 +56,9 @@
 		1D313F8926DCC59F00E6FFB1 /* RealTimeInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeInfoViewModel.swift; sourceTree = "<group>"; };
 		1D313F8B26DCCD6900E6FFB1 /* SocketConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketConnectionManager.swift; sourceTree = "<group>"; };
 		1D313F8D26DCE8E600E6FFB1 /* TradePairUpdates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePairUpdates.swift; sourceTree = "<group>"; };
+		1D313F8F26DD076300E6FFB1 /* RealTimeInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeInfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		1D313F9026DD076300E6FFB1 /* RealTimeInfoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RealTimeInfoCollectionViewCell.xib; sourceTree = "<group>"; };
+		1D313F9726DD26DB00E6FFB1 /* RealTimeInfoViewCellPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeInfoViewCellPresentation.swift; sourceTree = "<group>"; };
 		1D833AF926D78D5C000023B4 /* bitfinex-Trade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bitfinex-Trade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D833AFC26D78D5C000023B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D833AFE26D78D5C000023B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,8 +115,27 @@
 			children = (
 				1D313F8226DBBC3300E6FFB1 /* RealTimeInfoViewController.swift */,
 				1D313F8926DCC59F00E6FFB1 /* RealTimeInfoViewModel.swift */,
+				1D313F9526DD26AA00E6FFB1 /* View */,
 			);
 			path = RealTimeInfo;
+			sourceTree = "<group>";
+		};
+		1D313F9526DD26AA00E6FFB1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1D313F9626DD26B900E6FFB1 /* InfoCollectionViewCell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1D313F9626DD26B900E6FFB1 /* InfoCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1D313F8F26DD076300E6FFB1 /* RealTimeInfoCollectionViewCell.swift */,
+				1D313F9026DD076300E6FFB1 /* RealTimeInfoCollectionViewCell.xib */,
+				1D313F9726DD26DB00E6FFB1 /* RealTimeInfoViewCellPresentation.swift */,
+			);
+			path = InfoCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		1D833AF026D78D5C000023B4 = {
@@ -340,6 +365,7 @@
 				1D833B0926D78D5D000023B4 /* LaunchScreen.storyboard in Resources */,
 				1D833B0626D78D5D000023B4 /* Assets.xcassets in Resources */,
 				1D833B0426D78D5C000023B4 /* Main.storyboard in Resources */,
+				1D313F9226DD076300E6FFB1 /* RealTimeInfoCollectionViewCell.xib in Resources */,
 				1DCD569F26DA59730075E843 /* TradePairsListingTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,7 +395,9 @@
 				1D833B3726D7B041000023B4 /* NetworkManager.swift in Sources */,
 				1DCD56AA26DAA6290075E843 /* UITableViewCell+Extension.swift in Sources */,
 				1D313F8A26DCC59F00E6FFB1 /* RealTimeInfoViewModel.swift in Sources */,
+				1D313F9826DD26DB00E6FFB1 /* RealTimeInfoViewCellPresentation.swift in Sources */,
 				1D833B0126D78D5C000023B4 /* TradePairsListingViewController.swift in Sources */,
+				1D313F9126DD076300E6FFB1 /* RealTimeInfoCollectionViewCell.swift in Sources */,
 				1D833AFD26D78D5C000023B4 /* AppDelegate.swift in Sources */,
 				1D313F8E26DCE8E600E6FFB1 /* TradePairUpdates.swift in Sources */,
 				1DCD56A226DA59C30075E843 /* TradePairsListingPresentation.swift in Sources */,
