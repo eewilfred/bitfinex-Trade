@@ -157,17 +157,28 @@ extension RealTimeInfoViewController: RealTimeInfoViewModelDelegate {
 
 extension RealTimeInfoViewController: UICollectionViewDelegateFlowLayout {
 
-    // Distance Between Item Cells
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumLineSpacingForSectionAt section: Int
+    ) -> CGFloat {
+
         return 5
     }
 
-    // Cell Margin
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAt section: Int
+    ) -> UIEdgeInsets {
         return UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
 
         let totalWidth = collectionView.bounds.width - 50.0
         let totalHeight = collectionView.bounds.height
@@ -175,5 +186,4 @@ extension RealTimeInfoViewController: UICollectionViewDelegateFlowLayout {
         let cellHeight = (totalHeight/2.0) / (CGFloat(model.state.update?.updateInfo.count ?? 0)/2.0)
         return CGSize(width: totalWidth/2.0, height: cellHeight)
     }
-
 }
