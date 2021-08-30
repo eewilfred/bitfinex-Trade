@@ -30,6 +30,6 @@ class TickerInfoCollectionViewCell: UICollectionViewCell {
 
         guard let presentation = presentation else { return }
         titleLabel.text = presentation.fieldTitle
-        valueLabel.text = presentation.value
+        valueLabel.attributedText = presentation.value
     }
 }
