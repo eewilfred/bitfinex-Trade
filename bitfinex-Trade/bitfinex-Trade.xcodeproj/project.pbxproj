@@ -16,6 +16,10 @@
 		1D313F9826DD26DB00E6FFB1 /* TickerInfoViewCellPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313F9726DD26DB00E6FFB1 /* TickerInfoViewCellPresentation.swift */; };
 		1D313F9A26DD32F800E6FFB1 /* TradePairTradesUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313F9926DD32F800E6FFB1 /* TradePairTradesUpdate.swift */; };
 		1D313F9C26DD39E200E6FFB1 /* RealTimeInfoViewPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313F9B26DD39E200E6FFB1 /* RealTimeInfoViewPresentation.swift */; };
+		1D313F9F26DD3B0D00E6FFB1 /* TradeInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313F9D26DD3B0D00E6FFB1 /* TradeInfoCollectionViewCell.swift */; };
+		1D313FA026DD3B0D00E6FFB1 /* TradeInfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D313F9E26DD3B0D00E6FFB1 /* TradeInfoCollectionViewCell.xib */; };
+		1D313FA326DD757500E6FFB1 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313FA226DD757500E6FFB1 /* Date+Extension.swift */; };
+		1D313FA526DD75BA00E6FFB1 /* TradeInfoCellPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313FA426DD75BA00E6FFB1 /* TradeInfoCellPresentation.swift */; };
 		1D833AFD26D78D5C000023B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D833AFC26D78D5C000023B4 /* AppDelegate.swift */; };
 		1D833AFF26D78D5C000023B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D833AFE26D78D5C000023B4 /* SceneDelegate.swift */; };
 		1D833B0126D78D5C000023B4 /* TradePairsListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D833B0026D78D5C000023B4 /* TradePairsListingViewController.swift */; };
@@ -63,6 +67,10 @@
 		1D313F9726DD26DB00E6FFB1 /* TickerInfoViewCellPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerInfoViewCellPresentation.swift; sourceTree = "<group>"; };
 		1D313F9926DD32F800E6FFB1 /* TradePairTradesUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePairTradesUpdate.swift; sourceTree = "<group>"; };
 		1D313F9B26DD39E200E6FFB1 /* RealTimeInfoViewPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeInfoViewPresentation.swift; sourceTree = "<group>"; };
+		1D313F9D26DD3B0D00E6FFB1 /* TradeInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeInfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		1D313F9E26DD3B0D00E6FFB1 /* TradeInfoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TradeInfoCollectionViewCell.xib; sourceTree = "<group>"; };
+		1D313FA226DD757500E6FFB1 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		1D313FA426DD75BA00E6FFB1 /* TradeInfoCellPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeInfoCellPresentation.swift; sourceTree = "<group>"; };
 		1D833AF926D78D5C000023B4 /* bitfinex-Trade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bitfinex-Trade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D833AFC26D78D5C000023B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D833AFE26D78D5C000023B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				1D313F9626DD26B900E6FFB1 /* TickerInfoCollectionViewCell */,
+				1D313FA126DD3B1500E6FFB1 /* TradeInfoCollectionViewCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -141,6 +150,16 @@
 				1D313F9726DD26DB00E6FFB1 /* TickerInfoViewCellPresentation.swift */,
 			);
 			path = TickerInfoCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		1D313FA126DD3B1500E6FFB1 /* TradeInfoCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1D313F9D26DD3B0D00E6FFB1 /* TradeInfoCollectionViewCell.swift */,
+				1D313F9E26DD3B0D00E6FFB1 /* TradeInfoCollectionViewCell.xib */,
+				1D313FA426DD75BA00E6FFB1 /* TradeInfoCellPresentation.swift */,
+			);
+			path = TradeInfoCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		1D833AF026D78D5C000023B4 = {
@@ -261,6 +280,7 @@
 			children = (
 				1DCD56A926DAA6290075E843 /* UITableViewCell+Extension.swift */,
 				1DCD56AB26DAC0BA0075E843 /* Collection+Extension.swift */,
+				1D313FA226DD757500E6FFB1 /* Date+Extension.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -373,6 +393,7 @@
 				1D833B0426D78D5C000023B4 /* Main.storyboard in Resources */,
 				1D313F9226DD076300E6FFB1 /* TickerInfoCollectionViewCell.xib in Resources */,
 				1DCD569F26DA59730075E843 /* TradePairsListingTableViewCell.xib in Resources */,
+				1D313FA026DD3B0D00E6FFB1 /* TradeInfoCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DCD56AC26DAC0BA0075E843 /* Collection+Extension.swift in Sources */,
+				1D313F9F26DD3B0D00E6FFB1 /* TradeInfoCollectionViewCell.swift in Sources */,
 				1D833B3726D7B041000023B4 /* NetworkManager.swift in Sources */,
 				1DCD56AA26DAA6290075E843 /* UITableViewCell+Extension.swift in Sources */,
 				1D313F8A26DCC59F00E6FFB1 /* RealTimeInfoViewModel.swift in Sources */,
@@ -407,8 +429,10 @@
 				1D313F9126DD076300E6FFB1 /* TickerInfoCollectionViewCell.swift in Sources */,
 				1D833AFD26D78D5C000023B4 /* AppDelegate.swift in Sources */,
 				1D313F9C26DD39E200E6FFB1 /* RealTimeInfoViewPresentation.swift in Sources */,
+				1D313FA326DD757500E6FFB1 /* Date+Extension.swift in Sources */,
 				1D313F8E26DCE8E600E6FFB1 /* TradePairTickerUpdates.swift in Sources */,
 				1DCD56A226DA59C30075E843 /* TradePairsListingPresentation.swift in Sources */,
+				1D313FA526DD75BA00E6FFB1 /* TradeInfoCellPresentation.swift in Sources */,
 				1D313F8326DBBC3300E6FFB1 /* RealTimeInfoViewController.swift in Sources */,
 				1D313F8C26DCCD6900E6FFB1 /* SocketConnectionManager.swift in Sources */,
 				1DCD569626D7D6580075E843 /* TradePairs.swift in Sources */,

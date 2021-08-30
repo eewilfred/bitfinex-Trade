@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TradeInfoCollectionViewCell" customModule="bitfinex_Trade" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="461" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="461" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2E-la-bfl">
+                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="50"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHC-bT-1oZ">
+                        <rect key="frame" x="209.5" y="14.5" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1V-XU-xJy">
+                        <rect key="frame" x="419" y="0.0" width="42" height="50"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="XHC-bT-1oZ" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="4Vh-Ct-Sjn"/>
+                <constraint firstAttribute="bottom" secondItem="R1V-XU-xJy" secondAttribute="bottom" id="7R6-OU-3Nx"/>
+                <constraint firstItem="L2E-la-bfl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="TZI-3K-JQl"/>
+                <constraint firstItem="XHC-bT-1oZ" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Ywd-Gf-BOe"/>
+                <constraint firstItem="XHC-bT-1oZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="L2E-la-bfl" secondAttribute="trailing" constant="20" id="ZOc-qq-f3g"/>
+                <constraint firstAttribute="trailing" secondItem="R1V-XU-xJy" secondAttribute="trailing" id="bdY-TN-9kX"/>
+                <constraint firstItem="L2E-la-bfl" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dgN-k5-KVS"/>
+                <constraint firstItem="R1V-XU-xJy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XHC-bT-1oZ" secondAttribute="trailing" constant="20" id="mHj-7x-Opa"/>
+                <constraint firstAttribute="bottom" secondItem="L2E-la-bfl" secondAttribute="bottom" id="pNb-Ii-anY"/>
+                <constraint firstItem="R1V-XU-xJy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="v5S-LY-1FK"/>
+            </constraints>
+            <size key="customSize" width="461" height="50"/>
+            <connections>
+                <outlet property="amountLabel" destination="L2E-la-bfl" id="G1Y-hD-QO4"/>
+                <outlet property="priceLabel" destination="XHC-bT-1oZ" id="yoS-Vv-Ieb"/>
+                <outlet property="timeLabel" destination="R1V-XU-xJy" id="6Jp-QS-oiK"/>
+            </connections>
+            <point key="canvasLocation" x="272" y="72"/>
+        </collectionViewCell>
+    </objects>
+</document>
