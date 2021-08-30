@@ -19,6 +19,7 @@ struct RealTimeInfoViewState {
     var tickerSymbol: String
     var pairs: [TradePair]
     var update: TradePairTickerUpdates?
+    var tradeUpdate: TradePairTradesUpdate?
 }
 
 // MARK: - RealTimeInfoViewModel
@@ -27,7 +28,7 @@ class RealTimeInfoViewModel  {
 
     private enum Constants {
 
-        static let tickerUpdateUrlString = "wss://api-pub.bitfinex.com/ws/2"
+        static let updateUrlString = "wss://api-pub.bitfinex.com/ws/2"
     }
 
     var tickerUpdateManager: SocketConnectionManager?
@@ -46,6 +47,9 @@ class RealTimeInfoViewModel  {
         tickerUpdateManager?.send(
             text: tickerConnectionMessageForSymbol(symbol: symbol ?? state.tickerSymbol)
         )
+        tickerUpdateManager?.send(
+            text: tradeConnectionMessageForSymbol(symbol: symbol ?? state.tickerSymbol)
+        )
     }
 
     func stopListning() {
@@ -58,7 +62,7 @@ class RealTimeInfoViewModel  {
 
     private func configureTickerUpdateManager() {
 
-        if let url = URL(string: Constants.tickerUpdateUrlString) {
+        if let url = URL(string: Constants.updateUrlString) {
             tickerUpdateManager = SocketConnectionManager(url: url)
             tickerUpdateManager?.delegate = self
         }
@@ -68,6 +72,13 @@ class RealTimeInfoViewModel  {
 
         return """
                 {"event": "subscribe", "channel": "ticker", "symbol": "\(symbol)"}
+                """
+    }
+
+    private func tradeConnectionMessageForSymbol(symbol: String) -> String {
+
+        return """
+                {"event": "subscribe", "channel": "trades", "symbol": "\(symbol)"}
                 """
     }
 }
@@ -83,21 +94,34 @@ extension RealTimeInfoViewModel: SocketConnectionDelegate {
 
     func onMessage(text: String) {
 
-        if let jsonData = text.data(using: .utf8),
-           let tradePairUpdate = try? JSONDecoder().decode(
-            TradePairTickerUpdates.self,
-            from: jsonData
-           ) {
-            state.update = tradePairUpdate
-            delegate?.didUpdateTradePairInfo()
+        #if DEBUG
+//        print("message received:: \(text)")
+        #endif
 
-            #if DEBUG
-            print(state.update)
-            #endif
+        if let jsonData = text.data(using: .utf8) {
+            if let tradeUpdate = try? JSONDecoder().decode(TradePairTradesUpdate.self, from: jsonData) {
+                #if DEBUG
+                print("trade update received")
+                #endif
+                state.tradeUpdate = tradeUpdate
+            } else if let tradePairUpdate = try? JSONDecoder().decode(
+                TradePairTickerUpdates.self,
+                from: jsonData
+            ) {
+                state.update = tradePairUpdate
+                delegate?.didUpdateTradePairInfo()
+
+                #if DEBUG
+                print("ticket recived")
+                #endif
+            }
         }
     }
 
-    func onError(error: Error?) {}
+    func onError(error: Error?) {
+
+        #if DEBUG
+        print(error?.localizedDescription ?? "")
+        #endif
+    }
 }
-
-
