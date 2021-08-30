@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -113,6 +114,9 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="BTC / AED"/>
+                                        <connections>
+                                            <action selector="didTapOnTradePairChangeButton" destination="zHn-H8-7Z4" eventType="touchUpInside" id="Qjy-09-BYJ"/>
+                                        </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right.arrow.left" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1SN-e2-39e">
                                         <rect key="frame" x="0.0" y="1" width="38" height="34"/>
@@ -134,16 +138,68 @@
                                     <constraint firstAttribute="trailing" secondItem="k5D-RM-LjG" secondAttribute="trailing" id="zvz-pj-tQF"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="F8V-q5-cze">
+                                <rect key="frame" x="0.0" y="106" width="414" height="756"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="kOR-L3-TY0">
+                                    <size key="itemSize" width="112" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="15" minY="4" maxX="15" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3VA-Td-hFw">
+                                        <rect key="frame" x="15" y="4" width="112" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HOZ-4s-3X6">
+                                            <rect key="frame" x="0.0" y="0.0" width="112" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="q3c-Zt-0n7">
+                                        <rect key="frame" x="151" y="4" width="112" height="128"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ABS-qe-vIs">
+                                            <rect key="frame" x="0.0" y="0.0" width="112" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3e9-Ji-T7u">
+                                        <rect key="frame" x="287" y="4" width="112" height="128"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ej9-MQ-Ixt">
+                                            <rect key="frame" x="0.0" y="0.0" width="112" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="alK-2G-hIj">
+                                        <rect key="frame" x="15" y="142" width="112" height="128"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="qEQ-OM-Zcr">
+                                            <rect key="frame" x="0.0" y="0.0" width="112" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pq8-7p-19u"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="a3U-BA-Fpw" firstAttribute="leading" secondItem="pq8-7p-19u" secondAttribute="leading" constant="20" id="8eV-no-s7c"/>
+                            <constraint firstItem="pq8-7p-19u" firstAttribute="bottom" secondItem="F8V-q5-cze" secondAttribute="bottom" id="Exg-ho-jY3"/>
                             <constraint firstItem="vID-Vp-w3g" firstAttribute="centerY" secondItem="a3U-BA-Fpw" secondAttribute="centerY" id="TCH-cR-IwP"/>
                             <constraint firstItem="a3U-BA-Fpw" firstAttribute="top" secondItem="pq8-7p-19u" secondAttribute="top" constant="10" id="WtK-Fy-znX"/>
+                            <constraint firstItem="F8V-q5-cze" firstAttribute="leading" secondItem="pq8-7p-19u" secondAttribute="leading" id="cnZ-2S-rrQ"/>
                             <constraint firstItem="vID-Vp-w3g" firstAttribute="centerX" secondItem="1yN-yv-iGc" secondAttribute="centerX" id="dUF-uE-mlP"/>
+                            <constraint firstItem="F8V-q5-cze" firstAttribute="top" secondItem="a3U-BA-Fpw" secondAttribute="bottom" constant="8" symbolic="YES" id="g3a-Ee-JMz"/>
+                            <constraint firstItem="pq8-7p-19u" firstAttribute="trailing" secondItem="F8V-q5-cze" secondAttribute="trailing" id="iSD-2f-N0o"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="infoCollectionView" destination="F8V-q5-cze" id="tl0-lg-OsE"/>
+                        <outlet property="tradePairChangeButton" destination="k5D-RM-LjG" id="Z2n-TB-x8a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lSi-RB-pEu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

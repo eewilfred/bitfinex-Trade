@@ -15,3 +15,12 @@ extension UITableViewCell {
     /// Initialize xib using Class name
     class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
 }
+
+extension UICollectionViewCell {
+
+    /// Class name as cell identifier string
+    class var identifier: String { return String(describing: self) }
+
+    /// Initialize xib using Class name
+    class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
+}

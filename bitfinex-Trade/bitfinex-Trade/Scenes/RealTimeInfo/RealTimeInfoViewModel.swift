@@ -7,6 +7,11 @@
 
 import Foundation
 
+protocol RealTimeInfoViewModelDelegate: AnyObject {
+
+    func didUpdateTradePairInfo()
+}
+
 // MARK: - RealTimeInfoViewState
 
 struct RealTimeInfoViewState {
@@ -27,6 +32,8 @@ class RealTimeInfoViewModel  {
 
     var tickerUpdateManager: SocketConnectionManager?
     var state: RealTimeInfoViewState
+
+    weak var delegate: RealTimeInfoViewModelDelegate?
 
     init(tradePairSymbol: String, pairs: [TradePair]) {
 
@@ -82,6 +89,11 @@ extension RealTimeInfoViewModel: SocketConnectionDelegate {
             from: jsonData
            ) {
             state.update = tradePairUpdate
+            delegate?.didUpdateTradePairInfo()
+
+            #if DEBUG
+            print(state.update)
+            #endif
         }
     }
 
