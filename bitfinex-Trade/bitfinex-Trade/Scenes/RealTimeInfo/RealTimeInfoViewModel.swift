@@ -18,7 +18,7 @@ struct RealTimeInfoViewState {
 
     var tickerSymbol: String
     var pairs: [TradePair]
-    var update: TradePairUpdates?
+    var update: TradePairTickerUpdates?
 }
 
 // MARK: - RealTimeInfoViewModel
@@ -85,7 +85,7 @@ extension RealTimeInfoViewModel: SocketConnectionDelegate {
 
         if let jsonData = text.data(using: .utf8),
            let tradePairUpdate = try? JSONDecoder().decode(
-            TradePairUpdates.self,
+            TradePairTickerUpdates.self,
             from: jsonData
            ) {
             state.update = tradePairUpdate

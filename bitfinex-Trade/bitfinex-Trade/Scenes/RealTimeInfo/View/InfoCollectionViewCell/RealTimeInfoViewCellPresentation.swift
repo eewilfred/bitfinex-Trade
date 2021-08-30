@@ -12,7 +12,7 @@ struct RealTimeInfoViewCellPresentation: Hashable {
     var fieldTitle: String
     var value: String
 
-    init(info: TradePairUpdates.Information) {
+    init(info: TradePairTickerUpdates.Information) {
 
         switch info {
         case .bid(let value):

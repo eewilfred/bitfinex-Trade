@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TradePairUpdates: Decodable  {
+struct TradePairTickerUpdates: Decodable  {
 
     private var values = [Float]()
     var channelId: Int = 0
@@ -61,7 +61,9 @@ struct TradePairUpdates: Decodable  {
 
         var container = try decoder.unkeyedContainer()
         while !container.isAtEnd {
-            if let _ = try? container.decode(String.self) {
+            if let _ = try? container.decode([[Float]].self) {
+                throw SocketDataError.unExpectedData
+            } else if let _ = try? container.decode(String.self) {
                 throw SocketDataError.unExpectedData
             } else if let channelId = try? container.decode(Int.self) {
                 self.channelId = channelId
