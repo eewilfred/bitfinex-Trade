@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D313F8326DBBC3300E6FFB1 /* RealTimeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313F8226DBBC3300E6FFB1 /* RealTimeInfoViewController.swift */; };
 		1D313F8C26DCCD6900E6FFB1 /* SocketConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313F8B26DCCD6900E6FFB1 /* SocketConnectionManager.swift */; };
+		1D313F8E26DCE8E600E6FFB1 /* TradePairUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313F8D26DCE8E600E6FFB1 /* TradePairUpdates.swift */; };
 		1D833AFD26D78D5C000023B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D833AFC26D78D5C000023B4 /* AppDelegate.swift */; };
 		1D833AFF26D78D5C000023B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D833AFE26D78D5C000023B4 /* SceneDelegate.swift */; };
 		1D833B0126D78D5C000023B4 /* TradePairsListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D833B0026D78D5C000023B4 /* TradePairsListingViewController.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		1D313F8226DBBC3300E6FFB1 /* RealTimeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeInfoViewController.swift; sourceTree = "<group>"; };
 		1D313F8B26DCCD6900E6FFB1 /* SocketConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketConnectionManager.swift; sourceTree = "<group>"; };
+		1D313F8D26DCE8E600E6FFB1 /* TradePairUpdates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePairUpdates.swift; sourceTree = "<group>"; };
 		1D833AF926D78D5C000023B4 /* bitfinex-Trade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bitfinex-Trade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D833AFC26D78D5C000023B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D833AFE26D78D5C000023B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				1DCD569526D7D6580075E843 /* TradePairs.swift */,
+				1D313F8D26DCE8E600E6FFB1 /* TradePairUpdates.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				1DCD56AA26DAA6290075E843 /* UITableViewCell+Extension.swift in Sources */,
 				1D833B0126D78D5C000023B4 /* TradePairsListingViewController.swift in Sources */,
 				1D833AFD26D78D5C000023B4 /* AppDelegate.swift in Sources */,
+				1D313F8E26DCE8E600E6FFB1 /* TradePairUpdates.swift in Sources */,
 				1DCD56A226DA59C30075E843 /* TradePairsListingPresentation.swift in Sources */,
 				1D313F8326DBBC3300E6FFB1 /* RealTimeInfoViewController.swift in Sources */,
 				1D313F8C26DCCD6900E6FFB1 /* SocketConnectionManager.swift in Sources */,
