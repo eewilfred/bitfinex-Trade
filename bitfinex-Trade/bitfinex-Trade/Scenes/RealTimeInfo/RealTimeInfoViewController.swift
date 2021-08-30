@@ -18,7 +18,7 @@ struct RealTimeInfoViewPresentation {
 
     mutating func updaTetradeInfoCellPresentation(state: RealTimeInfoViewState) {
 
-        tradeInfoCellPresentation = state.update?.updateInfo.map({ (info) in
+        tradeInfoCellPresentation = state.tickerUpdate?.updateInfo.map({ (info) in
 
             RealTimeInfoViewCellPresentation(info: info)
         })
@@ -40,7 +40,7 @@ class RealTimeInfoViewController: UIViewController {
         super.viewDidLoad()
         configureCollectionView()
         model.delegate = self
-        model.startListningTickerUpdates()
+        model.startListningForUpdates()
     }
 
     private func configureCollectionView() {
@@ -183,7 +183,7 @@ extension RealTimeInfoViewController: UICollectionViewDelegateFlowLayout {
         let totalWidth = collectionView.bounds.width - 50.0
         let totalHeight = collectionView.bounds.height
 
-        let cellHeight = (totalHeight/2.0) / (CGFloat(model.state.update?.updateInfo.count ?? 0)/2.0)
+        let cellHeight = (totalHeight/2.0) / (CGFloat(model.state.tickerUpdate?.updateInfo.count ?? 0)/2.0)
         return CGSize(width: totalWidth/2.0, height: cellHeight)
     }
 }

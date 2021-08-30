@@ -18,7 +18,7 @@ struct RealTimeInfoViewState {
 
     var tickerSymbol: String
     var pairs: [TradePair]
-    var update: TradePairTickerUpdates?
+    var tickerUpdate: TradePairTickerUpdates?
     var tradeUpdate: TradePairTradesUpdate?
 }
 
@@ -42,7 +42,7 @@ class RealTimeInfoViewModel  {
         configureTickerUpdateManager()
     }
 
-    func startListningTickerUpdates(symbol: String? = nil) {
+    func startListningForUpdates(symbol: String? = nil) {
 
         tickerUpdateManager?.send(
             text: tickerConnectionMessageForSymbol(symbol: symbol ?? state.tickerSymbol)
@@ -108,7 +108,7 @@ extension RealTimeInfoViewModel: SocketConnectionDelegate {
                 TradePairTickerUpdates.self,
                 from: jsonData
             ) {
-                state.update = tradePairUpdate
+                state.tickerUpdate = tradePairUpdate
                 delegate?.didUpdateTradePairInfo()
 
                 #if DEBUG
