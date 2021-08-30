@@ -9,18 +9,20 @@ import UIKit
 
 class RealTimeInfoViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var model: RealTimeInfoViewModel!
 
-        // Do any additional setup after loading the view.
+    override func viewDidLoad() {
+
+        super.viewDidLoad()
+        model.startListningTickerUpdates()
     }
-    
+
 
     // MARK: Actions
 
     @IBAction func didTapOnBackButton() {
 
+        model.stopListning()
         self.dismiss(animated: true, completion: nil)
     }
-
 }

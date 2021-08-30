@@ -106,8 +106,13 @@ extension TradePairsListingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "RealTimeInfoViewController")
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "RealTimeInfoViewController") as? RealTimeInfoViewController,
+              let symbol = model.state.pairs?[safe: indexPath.row]?.name,
+              let pairs = model.state.pairs else {
+            return
+        }
         vc.modalPresentationStyle = .fullScreen
+        vc.model = RealTimeInfoViewModel(tradePairSymbol: symbol, pairs: pairs)
         self.present(vc, animated: true)
     }
 }
