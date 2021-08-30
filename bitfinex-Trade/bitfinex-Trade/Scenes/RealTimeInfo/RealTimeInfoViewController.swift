@@ -7,23 +7,6 @@
 
 import UIKit
 
-struct RealTimeInfoViewPresentation {
-
-    enum Sections: CaseIterable {
-
-        case info
-    }
-
-    var tradeInfoCellPresentation: [RealTimeInfoViewCellPresentation]?
-
-    mutating func updaTetradeInfoCellPresentation(state: RealTimeInfoViewState) {
-
-        tradeInfoCellPresentation = state.tickerUpdate?.updateInfo.map({ (info) in
-
-            RealTimeInfoViewCellPresentation(info: info)
-        })
-    }
-}
 
 class RealTimeInfoViewController: UIViewController {
 
@@ -79,7 +62,7 @@ class RealTimeInfoViewController: UIViewController {
             return
         }
 
-        snapshot.appendItems(presentation.tradeInfoCellPresentation ?? [])
+        snapshot.appendItems(presentation.tickerInfoCellPresentation ?? [])
         dataSource?.apply(snapshot)
     }
 
@@ -148,7 +131,7 @@ extension RealTimeInfoViewController: RealTimeInfoViewModelDelegate {
             return
         }
 
-        snapshot.deleteItems(presentation.tradeInfoCellPresentation ?? [])
+        snapshot.deleteItems(presentation.tickerInfoCellPresentation ?? [])
         dataSource?.apply(snapshot)
         presentation.updaTetradeInfoCellPresentation(state: model.state)
         UpdateCollectionView()
