@@ -26,48 +26,55 @@ class SocketConnectionManager: NSObject {
 
     weak var delegate: SocketConnectionDelegate?
 
-    private var webSocketTask: URLSessionWebSocketTask!
+    private var webSocketTask: URLSessionWebSocketTask?
     private var urlSession: URLSession!
     private let delegateQueue = OperationQueue()
+
+    private var url: URL
 
     // MARK: Public interfaces
 
     init(url: URL) {
 
+        self.url = url
         super.init()
         urlSession = URLSession(configuration: .default, delegate: self, delegateQueue: delegateQueue)
-        webSocketTask = urlSession.webSocketTask(with: url)
         connect()
     }
 
     func disconnect() {
 
-        webSocketTask.cancel(with: .goingAway, reason: nil)
+        webSocketTask?.cancel(with: .goingAway, reason: nil)
+        webSocketTask = nil
     }
 
     func send(text: String) {
 
-        webSocketTask.send(URLSessionWebSocketTask.Message.string(text)) { error in
+        webSocketTask?.send(URLSessionWebSocketTask.Message.string(text)) { error in
             if let error = error {
                 self.delegate?.onError(error: error)
             }
         }
     }
 
-    // MARK: private support functions
-    private func connect() {
-        webSocketTask.resume()
+    func connect() {
+
+        webSocketTask = urlSession.webSocketTask(with: url)
+        webSocketTask?.resume()
         listen()
     }
 
-    private func listen()  {
-        webSocketTask.receive { [weak self] result in
+    // MARK: private support functions
 
+    private func listen()  {
+
+        webSocketTask?.receive { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .failure(let error): // Will not be handling error
                 self.disconnect()
                 self.delegate?.onError(error: error)
+                return
             case .success(let message):
                 switch message {
                 case .string(let text):
@@ -76,6 +83,7 @@ class SocketConnectionManager: NSObject {
                     break
                 @unknown default:
                     self.delegate?.onError(error: nil)
+                    return
                 }
 
                 self.listen()

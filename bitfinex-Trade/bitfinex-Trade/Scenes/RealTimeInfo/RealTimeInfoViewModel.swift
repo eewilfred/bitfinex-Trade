@@ -43,20 +43,22 @@ class RealTimeInfoViewModel  {
         configureTickerUpdateManager()
     }
 
-    func startListningForUpdates(symbol: String? = nil) {
+    func startListningForUpdates(shouldResume: Bool = false) {
 
+        if shouldResume {
+            tickerUpdateManager?.connect()
+        }
         tickerUpdateManager?.send(
-            text: tickerConnectionMessageForSymbol(symbol: symbol ?? state.tickerSymbol)
+            text: tickerConnectionMessageForSymbol(symbol: state.tickerSymbol)
         )
         tickerUpdateManager?.send(
-            text: tradeConnectionMessageForSymbol(symbol: symbol ?? state.tickerSymbol)
+            text: tradeConnectionMessageForSymbol(symbol: state.tickerSymbol)
         )
     }
 
     func stopListning() {
 
         tickerUpdateManager?.disconnect()
-        tickerUpdateManager?.delegate = nil
     }
 
     // MARK: support
@@ -90,7 +92,7 @@ extension RealTimeInfoViewModel: SocketConnectionDelegate {
 
     func didDisconnected() {
 
-        configureTickerUpdateManager()
+//        configureTickerUpdateManager()
     }
 
     func onMessage(text: String) {

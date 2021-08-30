@@ -39,6 +39,8 @@ class RealTimeInfoViewController: UIViewController {
     @IBOutlet weak var tradePairChangeButton: UIButton!
     @IBOutlet weak var infoCollectionView: UICollectionView!
 
+    var pickerView: UIPickerView?
+
     var dataSource: UICollectionViewDiffableDataSource<RealTimeInfoViewPresentation.Sections, DataItem>?
     typealias Snapshot = NSDiffableDataSourceSnapshot<RealTimeInfoViewPresentation.Sections, DataItem>
 
@@ -48,6 +50,8 @@ class RealTimeInfoViewController: UIViewController {
         configureCollectionView()
         model.delegate = self
         model.startListningForUpdates()
+        let tradeSymbol = String(model.state.tickerSymbol.dropFirst())
+        tradePairChangeButton.setTitle(tradeSymbol, for: .normal)
     }
 
     private func configureCollectionView() {
@@ -86,15 +90,10 @@ class RealTimeInfoViewController: UIViewController {
                 }
 
             }
-
-
         })
 
-
         // link table and source
-        guard let data = dataSource else {
-            return
-        }
+        guard let data = dataSource else { return }
 
         data.supplementaryViewProvider = { (
             collectionView: UICollectionView,
@@ -128,11 +127,12 @@ class RealTimeInfoViewController: UIViewController {
 
     @IBAction func didTapOnTradePairChangeButton() {
 
-        let pickerView = UIPickerView()
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        pickerView.center = view.center
-        view.addSubview(pickerView)
+        pickerView = UIPickerView()
+        pickerView?.delegate = self
+        pickerView?.dataSource = self
+        pickerView?.center = view.center
+        pickerView?.backgroundColor = .systemGray4
+        view.addSubview(pickerView!)
     }
 }
 
@@ -160,9 +160,15 @@ extension RealTimeInfoViewController: UIPickerViewDelegate, UIPickerViewDataSour
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 
-        let name = model.state.pairs[safe: row]?.name
-        let traidPairName = name?.dropFirst()
-        tradePairChangeButton.setTitle(String(traidPairName ?? ""), for: .normal)
+        guard let name = model.state.pairs[safe: row]?.name else { return }
+        let traidPairName = name.dropFirst()
+        tradePairChangeButton.setTitle(String(traidPairName), for: .normal)
+
+        model.stopListning()
+        model.state.tickerSymbol = name
+        model.startListningForUpdates(shouldResume: true)
+
+        pickerView.removeFromSuperview()
     }
 }
 
