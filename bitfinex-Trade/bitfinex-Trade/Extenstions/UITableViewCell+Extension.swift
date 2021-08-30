@@ -16,7 +16,7 @@ extension UITableViewCell {
     class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
 }
 
-extension UICollectionViewCell {
+extension UICollectionReusableView {
 
     /// Class name as cell identifier string
     class var identifier: String { return String(describing: self) }

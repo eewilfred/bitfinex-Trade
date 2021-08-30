@@ -65,7 +65,16 @@ class RealTimeInfoViewController: UIViewController {
             forCellWithReuseIdentifier: TradeInfoCollectionViewCell.identifier
         )
 
-        infoCollectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
+        infoCollectionView.register(
+            TickerInfoSectionHeaderView.nib,
+            forSupplementaryViewOfKind:  UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: TickerInfoSectionHeaderView.identifier
+        )
+        infoCollectionView.register(
+            TradeInfoSectionHeaderView.nib,
+            forSupplementaryViewOfKind:  UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: TradeInfoSectionHeaderView.identifier
+        )
 
         infoCollectionView.delegate = self
 
@@ -100,8 +109,15 @@ class RealTimeInfoViewController: UIViewController {
             kind: String,
             indexPath: IndexPath) -> UICollectionReusableView? in
 
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header", for: indexPath)
-            header.largeContentTitle = kind
+            var reuseIdentifier = TickerInfoSectionHeaderView.identifier
+            if .tradeInfo == RealTimeInfoViewPresentation.Sections.init(rawValue: indexPath.section) {
+                reuseIdentifier = TradeInfoSectionHeaderView.identifier
+            }
+            let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: UICollectionView.elementKindSectionHeader,
+                withReuseIdentifier: reuseIdentifier,
+                for: indexPath
+            )
             return header
         }
 
