@@ -15,13 +15,13 @@ struct RealTimeInfoViewPresentation {
         case tradeInfo
     }
 
-    var tickerInfoCellPresentation: [RealTimeInfoViewCellPresentation]?
+    var tickerInfoCellPresentation: [TickerInfoViewCellPresentation]?
 
     mutating func updaTetradeInfoCellPresentation(state: RealTimeInfoViewState) {
 
         tickerInfoCellPresentation = state.tickerUpdate?.updateInfo.map({ (info) in
 
-            RealTimeInfoViewCellPresentation(info: info)
+            TickerInfoViewCellPresentation(info: info)
         })
     }
 }

@@ -7,12 +7,12 @@
 
 import UIKit
 
-class RealTimeInfoCollectionViewCell: UICollectionViewCell {
+class TickerInfoCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
 
-    var presentation: RealTimeInfoViewCellPresentation? {
+    var presentation: TickerInfoViewCellPresentation? {
 
         didSet {
             updateUI()

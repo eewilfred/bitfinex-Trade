@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RealTimeInfoViewCellPresentation: Hashable {
+struct TickerInfoViewCellPresentation: Hashable {
 
     var fieldTitle: String
     var value: String

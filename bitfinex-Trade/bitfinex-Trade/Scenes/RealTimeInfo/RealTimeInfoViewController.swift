@@ -16,7 +16,7 @@ class RealTimeInfoViewController: UIViewController {
     @IBOutlet weak var tradePairChangeButton: UIButton!
     @IBOutlet weak var infoCollectionView: UICollectionView!
 
-    var dataSource: UICollectionViewDiffableDataSource<RealTimeInfoViewPresentation.Sections, RealTimeInfoViewCellPresentation>?
+    var dataSource: UICollectionViewDiffableDataSource<RealTimeInfoViewPresentation.Sections, TickerInfoViewCellPresentation>?
     
     override func viewDidLoad() {
 
@@ -29,14 +29,14 @@ class RealTimeInfoViewController: UIViewController {
     private func configureCollectionView() {
 
         infoCollectionView.register(
-            RealTimeInfoCollectionViewCell.nib,
-            forCellWithReuseIdentifier: RealTimeInfoCollectionViewCell.identifier
+            TickerInfoCollectionViewCell.nib,
+            forCellWithReuseIdentifier: TickerInfoCollectionViewCell.identifier
         )
         infoCollectionView.delegate = self
 
         dataSource = UICollectionViewDiffableDataSource(collectionView: infoCollectionView, cellProvider: { (collectionView, path, cellPresentation) in
 
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RealTimeInfoCollectionViewCell.identifier, for: path) as? RealTimeInfoCollectionViewCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TickerInfoCollectionViewCell.identifier, for: path) as? TickerInfoCollectionViewCell else {
 
                 return UICollectionViewCell()
             }
@@ -50,7 +50,7 @@ class RealTimeInfoViewController: UIViewController {
             return
         }
 
-        var snapshot = NSDiffableDataSourceSnapshot<RealTimeInfoViewPresentation.Sections, RealTimeInfoViewCellPresentation>()
+        var snapshot = NSDiffableDataSourceSnapshot<RealTimeInfoViewPresentation.Sections, TickerInfoViewCellPresentation>()
         snapshot.appendSections(RealTimeInfoViewPresentation.Sections.allCases)
         snapshot.appendItems([])
         data.apply(snapshot, animatingDifferences: false, completion: nil)
