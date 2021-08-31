@@ -31,3 +31,9 @@ The first section with ticker info cell shows updates received from socket conne
 The second section handles Trade updates.
 
 The whole UI is getting Updated corresponding to the update.
+
+#### Github actions:
+I could not make it up and running actions due to workspace not found error. I am running out of time too, this can be taken up later on if needed.
+
+### Unit Test and Feature Test:
+All view models where logic sits are covered under unit and feature testing.
