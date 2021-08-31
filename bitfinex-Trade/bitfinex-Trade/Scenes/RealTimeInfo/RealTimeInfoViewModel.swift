@@ -90,10 +90,7 @@ class RealTimeInfoViewModel  {
 
 extension RealTimeInfoViewModel: SocketConnectionDelegate {
 
-    func didDisconnected() {
-
-//        configureTickerUpdateManager()
-    }
+    func didDisconnected() {}
 
     func onMessage(text: String) {
 
