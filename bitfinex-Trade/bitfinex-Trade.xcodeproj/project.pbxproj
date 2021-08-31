@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D0D5B7526DDF75300411E46 /* TradePairsListingViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0D5B7426DDF75300411E46 /* TradePairsListingViewModelTest.swift */; };
+		1D0D5B7726DDFAAF00411E46 /* RealTimeInfoViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0D5B7626DDFAAF00411E46 /* RealTimeInfoViewModelTest.swift */; };
 		1D313F8326DBBC3300E6FFB1 /* RealTimeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313F8226DBBC3300E6FFB1 /* RealTimeInfoViewController.swift */; };
 		1D313F8A26DCC59F00E6FFB1 /* RealTimeInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313F8926DCC59F00E6FFB1 /* RealTimeInfoViewModel.swift */; };
 		1D313F8C26DCCD6900E6FFB1 /* SocketConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D313F8B26DCCD6900E6FFB1 /* SocketConnectionManager.swift */; };
@@ -64,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		1D0D5B7426DDF75300411E46 /* TradePairsListingViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePairsListingViewModelTest.swift; sourceTree = "<group>"; };
+		1D0D5B7626DDFAAF00411E46 /* RealTimeInfoViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeInfoViewModelTest.swift; sourceTree = "<group>"; };
 		1D313F8226DBBC3300E6FFB1 /* RealTimeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeInfoViewController.swift; sourceTree = "<group>"; };
 		1D313F8926DCC59F00E6FFB1 /* RealTimeInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeInfoViewModel.swift; sourceTree = "<group>"; };
 		1D313F8B26DCCD6900E6FFB1 /* SocketConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketConnectionManager.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				1D833B1526D78D5D000023B4 /* Info.plist */,
 				1DCD569826DA4A340075E843 /* TradePairsFetchingCases.swift */,
 				1D0D5B7426DDF75300411E46 /* TradePairsListingViewModelTest.swift */,
+				1D0D5B7626DDFAAF00411E46 /* RealTimeInfoViewModelTest.swift */,
 			);
 			path = "bitfinex-TradeTests";
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DCD569926DA4A340075E843 /* TradePairsFetchingCases.swift in Sources */,
+				1D0D5B7726DDFAAF00411E46 /* RealTimeInfoViewModelTest.swift in Sources */,
 				1D833B1426D78D5D000023B4 /* bitfinex_TradeTests.swift in Sources */,
 				1D0D5B7526DDF75300411E46 /* TradePairsListingViewModelTest.swift in Sources */,
 			);
