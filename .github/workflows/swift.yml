@@ -1,36 +1,18 @@
-name: Build And Test
-
-on: [push]
-
+name: Testing
+on:
+  pull_request:
+    branches:
+    - master
 jobs:
-  build:
-
-    runs-on: macos-latest
-    strategy:
-      matrix:
-        run-config:
-          - { scheme: 'bitfinex-Trade', destination: 'platform=iOS Simulator,OS=14.5.0,name=iPhone 12' }
-          - { scheme: 'bitfinex-TradeTests', destination: 'platform=iOS Simulator,OS=14.5.0,name=iPhone 12' }
-
+  test:
+    name: Build iOS app
+    runs-on: macOS-latest
     steps:
-    - name: Checkout Project
-      uses: actions/checkout@v1
-
-#     - name: Homebrew build helpers install
-#       run: brew bundle
-
-#     - name: Show the currently detailed version of Xcode for CLI
-#       run: xcode-select -p
-
-#     - name: Show Build Settings
-#       run: xcodebuild -workspace MPCF-TestBench.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -showBuildSettings
-
-#     - name: Show Build SDK
-#       run: xcodebuild -workspace MPCF-TestBench.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -showsdks
-
-#     - name: Show Available Destinations
-#       run: xcodebuild -workspace MPCF-TestBench.xcworkspace -scheme '${{ matrix.run-config['scheme'] }}' -showdestinations
-
-    - name: build and test
-      run: xcodebuild clean test -scheme '${{ matrix.run-config['scheme'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary
-
+      - name: Checkout repository
+        uses: actions/checkout@v1
+#       - name: Force XCode 11.3
+#         run: sudo xcode-select -switch /Applications/Xcode_11.3.app
+#       - name: Testing Swift package
+#         run: exec ./.github/scripts/test_swift_package.sh
+      - name: Testing iOS app
+        run: exec ./.github/scripts/test_app.sh
